@@ -4,23 +4,44 @@
 <div class="container">
     <div class="row">
         <div class="col-3 pt-5">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" class="rounded-circle" style="height: 100px; width: 100px;">
+            <img src="{{$user->profile->profileImage()}}" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
-                <h1>{{$user->username}}</h1>
+
+                <div class="d-flex align-items-center pb-3">
+                    
+                    <div class="h4">
+                        {{$user->username}}
+                    </div>
             
-                <a href="#">Add New Post</a>
+                    <follow-button user-id="{{$user->id}}" follows="{{$follows}}">
+                        
+                    </follow-button>
+                </div>
+                
+
+                @can('update',$user->profile)
+                    <a href="/p/create">Add New Post</a>
+                @endcan
+
             </div>
+
+
+            @can('update',$user->profile)
+                <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+            @endcan
+
+
             <div class="d-flex">
                 <div class="pr-4">
-                    <strong>153</strong> posts
+                    <strong>{{ $postCount }}</strong> posts
                 </div>
                 <div class="pr-4">
-                    <strong>23k</strong> followers
+                    <strong>{{$followersCount}}</strong> followers
                 </div>
                 <div class="pr-4">
-                    <strong>212</strong> following
+                    <strong>{{$followingCount}}</strong> following
                 </div>
             </div>
             <div class="pt-3 font-weight-bold">{{$user->profile->title}}</div>
@@ -30,15 +51,15 @@
     </div>
 
     <div class="row pt-5">
-        <div class="col-4">
-            <img src="https://media.gazetadopovo.com.br/haus/2019/10/flores-primavera-pixabay-1-768x415-d7bd5fc0.jpg" class="w-100">
-        </div>
-        <div class="col-4">
-            <img src="https://s2.glbimg.com/jsaPuF7nO23vRxQkuJ_V3WgouKA=/e.glbimg.com/og/ed/f/original/2014/06/10/461777879.jpg" class="w-100">
-        </div>
-        <div class="col-4">
-            <img src="https://lh3.googleusercontent.com/proxy/NIgyRkXsrs4X1RnOqeCkPBraApricsafMXRfPgi9OoBJq255beRgJEe5IAVXtGBfYZ-kUBHiqsVPWJwRVo61GR0Eu00pD5idtT0IGGLUGUj9fKC6qiHZsaoZ2EtgqwbNCXLxvUFzEDKLA22MB0P8W-z-Nsl0sPVmMwjq95O8v-zaK1PJ_CtkkCocC9BOf-JOCKRQDA" class="w-100">
-        </div>
+
+        @foreach($user->posts as $post)
+            <div class="col-4 pb-4">
+                <a href="/p/{{$post->id}}"><img src="/storage/{{$post->image}}" class="w-100"></a>
+            </div>
+        @endforeach
+
+        
+        
     </div>
 
 </div>
