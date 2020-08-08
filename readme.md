@@ -1,3 +1,28 @@
+Informações sobre o projeto:<br>
+
+Criador: Henrique Duarte Guerra<br>
+Banco de dados utilizado: sqlite;<br><br>
+
+Projeto realizado para fins educacionais, com base no curso de 4 horas de laravel disponibilizado gratuitamente pelo canal no Youtube "freeCodeCamp.org", o qual pode ser visualizado nesse link: https://www.youtube.com/watch?v=ImtZ5yENzgE&list=PLlJLlo0qFFrqWnIqDjBaRIPgMrrmmf0Iv&index=9&t=4276s<br><br>
+O objetivo desse projeto é criar uma rede social, bastante inspirada no Instagram, na qual o usuário tem a possibilidade de criar um perfil, postar publicações, editar informações do perfil (Como imagem de perfil e descrição), seguir outros usuários e visualizar as publicações de quem você segue na página inicial do site. O perfil do usuário possui informações do número de publicações feitas por ele, a quantidade de pessoas que o seguem e a de que ele segue. As publicações postadas são apresentadas em ordem decrescente de publicação, assim como é normalmente em redes sociais. O usuário só pode editar ou postar publicações no próprio perfil (Em outros perfis, essas opções não são mostradas).
+
+Necessário ter o composer instalado no sistema para executar o projeto;<br><br>
+
+Tutorial de uso:<br>
+
+Vá ao terminal e localize a pasta onde o projeto foi salvo.<br>
+Execute o comando "composer install" para instalar o composer na pasta do projeto. Logo após, crie um arquivo chamado "database.sqlite" na pasta "database" do projeto.<br>
+
+Feito isso, execute o comando "copy .env.example .env" (esse comando é necessário pois cria uma cópia do arquivo ".env.example", nomeada ".env"). Em seguida, execute "php artisan migrate". Execute "php artisan key:generate", e logo após, execute "php artisan serve", e deixe o terminal aberto durante o uso do site.<br>
+
+Após executar o comando "php artisan serve", aparecerá na tela do terminal um link, copie e cole ele no seu browser de preferência. O site abre na página de login, se você ainda não tiver um cadastro no site, clique em "Register" no canto superior direito. Na página de registro há 5 campos para serem preenchidos: Name, Email Address, Username, Password, Confirm Password. Ao terminar de preencher os campos clique no botão "Register". Você será logado automaticamente, e redirecionado à página inicial. A página inicial é aonde irão aparecer publicações daqueles que você segue no site. Na página inicial há o botão "Your Profile", ao clicar nele, você é redirecionado ao seu perfil. Para editar dados do seu perfil, clique em "Edit Profile". Para postar publicações, clique em "Add new Post". Caso precise retornar à página inicial, é só clicar em "projetoInstagram", no canto superior esquerdo da tela. Você pode deslogar da sua conta clicando no seu nome de usuário no canto superior direito, e em seguida em "Logout".<br> 
+Para visitar perfis de outros usuários, é necessário saber o ID deles. Tendo o ID de outro usuário, acrescente-o na url do site, na frente de "profile/". Exemplo de como fica a url: http://127.0.0.1:8000/profile/1 <br>
+Para seguir um usuário, clique no botão "Follow". Para deixar de seguir alguém, clique em "Unfollow".
+
+
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
