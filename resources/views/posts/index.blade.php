@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="offset-1">
+<div class="d-flex justify-content-center">
     <a href="/profile/{{Auth::user()->id}}">
         Your Profile
     </a>
+    
+                                
 </div>
+<br>
 <div class="container">
+
+
     @foreach($posts as $post)
         <div class="row">
             <div class="col-6 offset-3">
